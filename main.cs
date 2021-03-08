@@ -30,7 +30,17 @@ namespace dhondt_project
         static void Main(string[] args)
 
         {
+          //MAKE IT SO EVERY LINE IS ADDED AS AN ELEMENT TO A NEW LIST
+          //FROM THERE INITIALISE NEW INTANCES OF THE PARTY CLASS PER EACH ELEMENT IN
+          //THE LIST, BESIDES THE FIRST 3
+          //
 
+
+            string title;
+            int rounds;
+            int totalvotes;
+
+            String fileline;
             try
             {
                 
@@ -45,7 +55,7 @@ namespace dhondt_project
                     
                     fileline = fileread.ReadLine();
                 }
-                //close the file
+                
                 fileread.Close();
                 Console.ReadLine();
             }
