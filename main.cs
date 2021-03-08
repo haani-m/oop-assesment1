@@ -30,23 +30,23 @@ namespace dhondt_project
         static void Main(string[] args)
 
         {
-            String line;
+
             try
             {
-                //Pass the file path and file name to the StreamReader constructor
-                StreamReader sr = new StreamReader("inputs.txt");
-                //Read the first line of text
-                line = sr.ReadLine();
-                //Continue to read until you reach end of file
-                while (line != null)
+                
+                StreamReader fileread = new StreamReader("inputs.txt");
+                
+                fileline = fileread.ReadLine();
+                
+                while (fileline != null)
                 {
-                    //write the lie to console window
-                    Console.WriteLine(line);
-                    //Read the next line
-                    line = sr.ReadLine();
+                    
+                    Console.WriteLine(fileline);
+                    
+                    fileline = fileread.ReadLine();
                 }
                 //close the file
-                sr.Close();
+                fileread.Close();
                 Console.ReadLine();
             }
             catch (Exception e)
