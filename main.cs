@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 namespace dhondt_project
 {
     class Party
@@ -34,11 +36,20 @@ namespace dhondt_project
           //FROM THERE INITIALISE NEW INTANCES OF THE PARTY CLASS PER EACH ELEMENT IN
           //THE LIST, BESIDES THE FIRST 3
           //
+            string filepath = "inputs.txt";
 
+            List<string> lines = new List<string>();
+            lines = File.ReadAllLines(filepath).ToList();
+           // foreach (String line in lines)
+            //{
+            //  Console.WriteLine(line);
+            //}
 
-            string title;
-            int rounds;
-            int totalvotes;
+            //var splitline = partyline.Split(",");
+            //Console.WriteLine(splitline);
+            string title = lines[0];
+            int rounds = lines[1].ToInt32;
+            int totalvotes = lines[2].ToInt32;
 
             String fileline;
             String partyline;
@@ -46,6 +57,7 @@ namespace dhondt_project
             {
                 
                 StreamReader fileread = new StreamReader("inputs.txt");
+
                 
                 //title = fileread.Readline();
                 //Console.WriteLine(title);
