@@ -41,19 +41,26 @@ namespace dhondt_project
             int totalvotes;
 
             String fileline;
+            String partyline;
             try
             {
                 
                 StreamReader fileread = new StreamReader("inputs.txt");
                 
-                fileline = fileread.ReadLine();
-                
-                while (fileline != null)
+                //title = fileread.Readline();
+                //Console.WriteLine(title);
+                //rounds = fileread.Readline();
+                //totalvotes = fileread.Readline();
+
+                partyline = fileread.ReadLine();
+        
+                while (partyline != null)
                 {
-                    
-                    Console.WriteLine(fileline);
-                    
-                    fileline = fileread.ReadLine();
+                
+                    //var splitline = partyline.Split(",");
+                    //Console.WriteLine(splitline);
+                    Console.WriteLine(partyline);
+                    partyline = fileread.ReadLine();
                 }
                 
                 fileread.Close();
