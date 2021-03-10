@@ -61,10 +61,12 @@ namespace dhondt_project
             //goes through each item in the list, turning it into an array 
             foreach(string line in lines)
             {
-              //removes the ";" from the end
-              linemin1 = line.Remove(line.Length - 1, 1);
+              //removes the ";" from the end of the line
+              
+              string linemin1 = line.Remove(line.Length - 1, 1);
+              
               //splits the item in the list into an array
-              string[] splitline = linmin1.Split(",");
+              string[] splitline = linemin1.Split(",");
               
               //sets first two items as party name and total votes 
               string pname = splitline[0];
@@ -96,45 +98,7 @@ namespace dhondt_project
             }
             
             
-            //!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
-            //OLD CODE FOR SAFE KEEPING DELETE BEFORE SUBMISSION
-            //!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
-            //String fileline;
-            //String partyline;
-            //try
-           // {
-                
-           //     StreamReader fileread = new StreamReader("inputs.txt");
-
-                
-                //title = fileread.Readline();
-                //Console.WriteLine(title);
-                //rounds = fileread.Readline();
-                //totalvotes = fileread.Readline();
-
-           //     partyline = fileread.ReadLine();
-        
-            //    while (partyline != null)
-           //     {
-                
-                    //var splitline = partyline.Split(",");
-                    //Console.WriteLine(splitline);
-                    //Console.WriteLine(partyline);
-                    //partyline = fileread.ReadLine();
-               // }
-                
-                //fileread.Close();
-                //Console.ReadLine();
-            //}
-            //catch (Exception e)
-            //{
-                //Console.WriteLine("Exception: " + e.Message);
-            //}
-            //finally
-            //{
-                //Console.WriteLine("Executing finally block.");
-            //}
-
+            
 
         }
     }
