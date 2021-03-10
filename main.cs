@@ -61,14 +61,26 @@ namespace dhondt_project
             //goes through each item in the list, turning it into an array 
             foreach(string line in lines)
             {
-              //!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
-              //!!!!!!!HUGH create new objects here!!!!!!!!
-              //!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+              
+              //splits the item in the list into an array
               string[] splitline = line.Split(",");
               
+              //sets first two items as party name and total votes 
               string pname = splitline[0];
               int pvotes = Int32.Parse(splitline[1]);
-              string[] pnoms = splitline[2]+splitline[3]+splitline[4]+splitline[5]+splitline[6];
+              
+              //converts array to list in order to remove the first two items, 
+              //so we are left with just the nominees
+              List<string> tempnoms = new List<string>();
+              tempnoms = splitline.ToList().RemoveRange(0,2);
+
+              //converts list back to array so it is compatible with the class
+              string[] pnoms = tempnoms.ToArray();
+
+              
+              Console.WriteLine(pname);
+              Console.WriteLine(pvotes);
+
 
               //!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
               //!!!!!!!HUGH create new objects here!!!!!!!!
