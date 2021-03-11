@@ -47,17 +47,7 @@ namespace dhondt_project
       }
         
     }  
-    class mathsStuff
-    {
-      private int votes{ get; set; }
-      private int toatSeats{ get; set; }
-      private int curSeats{ get; set; }
-      private string[] noms{ get; set; }
 
-
-
-      }
-    }
     class Program
     {
       public int curRound = 0;
