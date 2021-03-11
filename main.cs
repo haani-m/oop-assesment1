@@ -9,7 +9,7 @@ namespace dhondt_project
         private string _partyname;
         private int _votes;
         private string[] _noms;
-        private int _seats;
+        private int _seats = 0;
 
 
         public string partyname
@@ -36,21 +36,56 @@ namespace dhondt_project
             set { _seats = value; }
         }
 
-      public void pMaker(string pname, int pvotes, int rounds, int seats, string[] noms)
-      {
-        pname=pname;
-        pvotes=votes;
-        toatSeats=rounds;
-        curSeats=seats;
-        noms=noms;
+      
+        public void pMaker(string pname, int pvotes, int rounds, string[] noms)
+        {
+          partyname=pname;
+          votes=pvotes;
+          seats=0;
+          noms=noms;
 
-      }
+        }
+
+        public int calculations(int v1,int v2,int w1,int w2,int x1,int x2,int y1,int y2,int z1,int z2)
+        {
+          if(v1 < w1 && v1 < x1 && v1 < y1 && v1 < z1)
+          {
+            v2 += 1;
+            v1 = v1 / (v2 + 1);
+            return 1;
+          }
+          else if(w1 < v1 && w1 < x1 && w1 < y1 && w1 < z1)
+          { 
+            w2 += 1;
+            w1 = w1 / (w2 + 1);
+            return 2;
+          }
+          else if(x1 < v1 && x1 < w1 && x1 < y1 && x1 < z1)
+          {
+            x2 += 1;
+            x1 = x1 / (x2 + 1);
+            return 3;
+          }
+          else if(y1 < v1 && y1 < w1 && y1 < x1 && y1 < z1)
+          {
+            y2 += 1;
+            y1 = y1 / (y2 + 1);
+            return 4;
+          }
+          else (z1 < v1 && z1 < w1 && z1 < x1 && z1 < y1)
+          {
+            z2 += 1;
+            z1 = z1 / (z2 + 1);
+            return 5;
+          }
+        }
+
         
     }  
 
     class Program
     {
-      public int curRound = 0;
+        public int rounds = 0;
 
         static void Main(string[] args)
 
@@ -81,7 +116,7 @@ namespace dhondt_project
             //goes through each item in the list, turning it into an array 
             foreach(string line in lines)
             {
-              curRound += 1;
+              rounds += 1;
               //removes the ";" from the end of the line
               
               string linemin1 = line.Remove(line.Length - 1, 1);
@@ -89,7 +124,7 @@ namespace dhondt_project
               //splits the item in the list into an array
               string[] splitline = linemin1.Split(",");
               
-              //sets first two items as party name and total votes 
+              //sets first two items as party name and total _votes 
               string pname = splitline[0];
               int pvotes = Int32.Parse(splitline[1]);
               
@@ -118,52 +153,47 @@ namespace dhondt_project
               //!!!!!!!HUGH create new objects here!!!!!!!!
               //!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
               
-              if(curRounds==1)
+              if(rounds==1)
               {
-                pMaker p1 = new pMaker(pname,pvotes,rounds, curRound, pnoms);
+                Party p1 = new Party();
+                p1.partyname = pname;
+                p1.votes = pvotes;
+                p1.noms = pnoms;
               }
-              if(curRounds==2)
+              if(rounds==2)
               {
-                pMaker p2 = new pMaker(pame,pvotes,rounds, curRound, pnoms);
+                Party p2 = new Party();
+                p2.partyname = pname;
+                p2.votes = pvotes;
+                p2.noms = pnoms;
               }
-              if(curRounds==3)
+              if(rounds==3)
               {
-                pMaker p3 = new pMaker(pname,pvotes,rounds, curRound, pnoms);
+                Party p3 = new Party();
+                p3.partyname = pname;
+                p3.votes = pvotes;
+                p3.noms = pnoms;
               }
-              if(curRounds==4)
+              if(rounds==4)
               {
-                pMaker p4 = new pMaker(pname,pvotes,rounds, curRound, pnoms);
+                Party p4 = new Party();
+                p4.partyname = pname;
+                p4.votes = pvotes;
+                p4.noms = pnoms;
               }
-              if(curRounds==5)
+              if(rounds==5)
               {
-                pMaker p5 = new pMaker(pname,pvotes,rounds, curRound, pnoms);
+                Party p5 = new Party();
+                p5.partyname = pname;
+                p5.votes = pvotes;
+                p5.noms = pnoms;
               }
               
 
             }
 
-        if(p1.votes()<p2.votes() && p1.votes()<p3.votes() && p1.votes()<p4.votes() && p1.votes()<p5.votes())
-        {
-          p1.curSeats() += 1;
-          p1.votes() = p1.votes() / (p1.curSeats() + 1);
+
+          }
         }
-        else if(p2.votes()<p1.votes() && p2.votes()<p3.votes() && p2.votes()<p4.votes() && p2.votes()<p5.votes())
-        {
-          p2.curSeats() += 1;
-          p2.votes() = p1.votes() / (p2.curSeats() + 1);
-        }
-        else if(p3.votes()<p1.votes() && p3.votes()<p2.votes() && p3.votes()<p4.votes() && p3.votes()<p5.votes()){
-          p3.curSeats() += 1;
-          p3.votes() = p1.votes() / (p3.curSeats() + 1);
-        }
-        else if(p4.votes()<p1.votes() && p4.votes()<p2.votes() && p4.votes()<p3.votes() && p4.votes()<p5.votes()){
-          p4.curSeats() += 1;
-          p4.votes() = p4.votes() / (p4.curSeats() + 1);
-        }
-        else if(p5.votes()<p1.votes() && p5.votes()<p2.votes() && p5.votes()<p3.votes() && p5.votes()<p4.votes()){
-          p5.curSeats() += 1;
-          p5.votes() = p5.votes() / (p5.curSeats() + 1);
-        }
-        
     }
-}
+//}
