@@ -226,15 +226,15 @@ namespace dhondt_project
               //prints the candidates results to a text file
               
               File.WriteAllText("results.txt", title);
-              file.AppendText("results.txt",p1.partyname + "," + noms[0,p1.seats-1]
+              File.AppendText("results.txt",p1.partyname + "," + noms[0,p1.seats-1]);
 
-              file.AppendText("results.txt",p1.partyname + "," + noms[0,p2.seats-1]
+              File.AppendText("results.txt",p1.partyname + "," + noms[0,p2.seats-1]);
 
-              file.AppendText("results.txt",p1.partyname + "," + noms[0,p3.seats-1]
+              File.AppendText("results.txt",p1.partyname + "," + noms[0,p3.seats-1]);
 
-              file.AppendText("results.txt",p1.partyname + "," + noms[0,p4.seats-1]
+              File.AppendText("results.txt",p1.partyname + "," + noms[0,p4.seats-1]);
 
-              file.AppendText("results.txt",p1.partyname + "," + noms[0,p5.seats-1]
+              File.AppendText("results.txt",p1.partyname + "," + noms[0,p5.seats-1]);
               
               }
 
