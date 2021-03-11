@@ -37,14 +37,7 @@ namespace dhondt_project
         }
 
       
-        public void pMaker(string pname, int pvotes, int rounds, string[] noms)
-        {
-          partyname=pname;
-          votes=pvotes;
-          seats=0;
-          noms=noms;
 
-        }
 
         public int calculations(int v1,int v2,int w1,int w2,int x1,int x2,int y1,int y2,int z1,int z2)
         {
@@ -94,7 +87,7 @@ namespace dhondt_project
     class Program
     {
         public int rounds = 0;
-        public int ans = 0;
+        //public int ans = 0;
 
         static void Main(string[] args)
 
@@ -200,29 +193,43 @@ namespace dhondt_project
               
 
             }
-            ans = calculations(p1.votes(), p1.seats(), p2.votes(), p2.seats(), p3.votes(), p3.seats(), p4.votes(), p4.seats(), p5.votes(), p5.seats());
-            if (ans == 1)
+            for (int i = 0; i < 5; i++) 
             {
-              p1.votes() = p1.votes() / p1.seats +1
-            }
-            else if (ans == 2)
-            {
-              p2.votes() = p2.votes() / p2.seats +1
-            }
-            if (ans == 3)
-            {
-              p3.votes() = p3.votes() / p3.seats +1
-            }
-            if (ans == 4)
-            {
-              p4.votes() = p4.votes() / p4.seats +1
-            }
-            if (ans == 5)
-            {
-              p5.votes() = p5.votes() / p5.seats +1
-            }
-            
+              int ans = Party.calculations(p1.votes(), p1.seats(), p2.votes(), p2.seats(), p3.votes(), p3.seats(), p4.votes(), p4.seats(), p5.votes(), p5.seats());
+              if (ans == 1)
+              {
+                p1.votes() = p1.votes() / p1.seats +1;
+                
+              }
+              else if (ans == 2)
+              {
+                p2.votes() = p2.votes() / p2.seats +1;
+                
+              }
+              if (ans == 3)
+              {
+                p3.votes() = p3.votes() / p3.seats +1;
+                
+              }
+              if (ans == 4)
+              {
+                p4.votes() = p4.votes() / p4.seats +1;
+                
+              }
+              if (ans == 5)
+              {
+                p5.votes() = p5.votes() / p5.seats +1;
+                
+              }
+              //Console.WriteLine(p1.votes);
+              //Console.WriteLine(p2.votes);
+              //Console.WriteLine(p3.votes);
+             // Console.WriteLine(p4.votes);
+              //Console.WriteLine(p5.votes);
 
+
+
+            }
           }
         }
     }
