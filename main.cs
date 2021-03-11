@@ -9,6 +9,7 @@ namespace dhondt_project
         private string _partyname;
         private int _votes;
         private string[] _noms;
+        private int _seats;
 
 
         public string partyname
@@ -29,6 +30,22 @@ namespace dhondt_project
             set { _noms = value; }
         }
         
+        public int seats
+       {
+            get { return _seats; }
+            set { _seats = value; }
+        }
+
+      public void pMaker(string pname, int pvotes, int rounds, int seats, string[] noms)
+      {
+        pname=pname;
+        pvotes=votes;
+        toatSeats=rounds;
+        curSeats=seats;
+        noms=noms;
+
+      }
+        
     }  
     class mathsStuff
     {
@@ -37,21 +54,13 @@ namespace dhondt_project
       private int curSeats{ get; set; }
       private string[] noms{ get; set; }
 
-      public void pMaker(string _pName, int _votes, int _toatSeats, int _curSeats, string[] _noms)
-      {
-        pName=_pname;
-        votes=_votes;
-        toatSeats=_toatSeats;
-        curSeats=_curSeats;
-        noms=_noms;
 
-      }
 
       }
     }
     class Program
     {
-      public int curRound = 1;
+      public int curRound = 0;
 
         static void Main(string[] args)
 
@@ -82,7 +91,7 @@ namespace dhondt_project
             //goes through each item in the list, turning it into an array 
             foreach(string line in lines)
             {
-              
+              curRound += 1;
               //removes the ";" from the end of the line
               
               string linemin1 = line.Remove(line.Length - 1, 1);
@@ -118,23 +127,24 @@ namespace dhondt_project
               //!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
               //!!!!!!!HUGH create new objects here!!!!!!!!
               //!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
-              if(curRounds=1)
+              
+              if(curRounds==1)
               {
                 pMaker p1 = new pMaker(pname,pvotes,rounds, curRound, pnoms);
               }
-              if(curRounds=2)
+              if(curRounds==2)
               {
-                pMaker p2 = new pMaker(pname,pvotes,rounds, curRound, pnoms);
+                pMaker p2 = new pMaker(pame,pvotes,rounds, curRound, pnoms);
               }
-              if(curRounds=3)
+              if(curRounds==3)
               {
                 pMaker p3 = new pMaker(pname,pvotes,rounds, curRound, pnoms);
               }
-              if(curRounds=4)
+              if(curRounds==4)
               {
                 pMaker p4 = new pMaker(pname,pvotes,rounds, curRound, pnoms);
               }
-              if(curRounds=5)
+              if(curRounds==5)
               {
                 pMaker p5 = new pMaker(pname,pvotes,rounds, curRound, pnoms);
               }
@@ -142,27 +152,27 @@ namespace dhondt_project
 
             }
 
-        if(p1.votes<p2.votes && p1.votes<p3.votes && p1.votes<p4.votes && p1.votes<p5.votes)
+        if(p1.votes()<p2.votes() && p1.votes()<p3.votes() && p1.votes()<p4.votes() && p1.votes()<p5.votes())
         {
-          p1.curSeats += 1;
-          p1.votes = p1.votes / (p1.curSeats + 1);
+          p1.curSeats() += 1;
+          p1.votes() = p1.votes() / (p1.curSeats() + 1);
         }
-        else if(p2.votes<p1.votes && p2.votes<p3.votes && p2.votes<p4.votes && p2.votes<p5.votes)
+        else if(p2.votes()<p1.votes() && p2.votes()<p3.votes() && p2.votes()<p4.votes() && p2.votes()<p5.votes())
         {
-          p2.curSeats += 1;
-          p2.votes = p1.votes / (p2.curSeats + 1);
+          p2.curSeats() += 1;
+          p2.votes() = p1.votes() / (p2.curSeats() + 1);
         }
-        else if(p3.votes<p1.votes && p3.votes<p2.votes && p3.votes<p4.votes && p3.votes<p5.votes){
-          p3.curSeats += 1;
-          p3.votes = p1.votes / (p3.curSeats + 1);
+        else if(p3.votes()<p1.votes() && p3.votes()<p2.votes() && p3.votes()<p4.votes() && p3.votes()<p5.votes()){
+          p3.curSeats() += 1;
+          p3.votes() = p1.votes() / (p3.curSeats() + 1);
         }
-        else if(p4.votes<p1.votes && p4.votes<p2.votes && p4.votes<p3.votes && p4.votes<p5.votes){
-          p4.curSeats += 1;
-          p4.votes = p4.votes / (p4.curSeats + 1);
+        else if(p4.votes()<p1.votes() && p4.votes()<p2.votes() && p4.votes()<p3.votes() && p4.votes()<p5.votes()){
+          p4.curSeats() += 1;
+          p4.votes() = p4.votes() / (p4.curSeats() + 1);
         }
-        else if(p5.votes<p1.votes && p5.votes<p2.votes && p5.votes<p3.votes && p5.votes<p4.votes){
-          p5.curSeats += 1;
-          p5.votes = p5.votes / (p5.curSeats + 1);
+        else if(p5.votes()<p1.votes() && p5.votes()<p2.votes() && p5.votes()<p3.votes() && p5.votes()<p4.votes()){
+          p5.curSeats() += 1;
+          p5.votes() = p5.votes() / (p5.curSeats() + 1);
         }
         
     }
