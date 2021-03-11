@@ -48,36 +48,44 @@ namespace dhondt_project
 
         public int calculations(int v1,int v2,int w1,int w2,int x1,int x2,int y1,int y2,int z1,int z2)
         {
+          
           if(v1 < w1 && v1 < x1 && v1 < y1 && v1 < z1)
           {
             v2 += 1;
             v1 = v1 / (v2 + 1);
             return 1;
           }
-          else if(w1 < v1 && w1 < x1 && w1 < y1 && w1 < z1)
+          
+          else if (w1 < v1 && w1 < x1 && w1 < y1 && w1 < z1)
           { 
             w2 += 1;
             w1 = w1 / (w2 + 1);
             return 2;
           }
-          else if(x1 < v1 && x1 < w1 && x1 < y1 && x1 < z1)
+          
+          else if (x1 < v1 && x1 < w1 && x1 < y1 && x1 < z1)
           {
             x2 += 1;
             x1 = x1 / (x2 + 1);
             return 3;
           }
-          else if(y1 < v1 && y1 < w1 && y1 < x1 && y1 < z1)
+          
+          else if (y1 < v1 && y1 < w1 && y1 < x1 && y1 < z1)
           {
             y2 += 1;
             y1 = y1 / (y2 + 1);
             return 4;
           }
-          else (z1 < v1 && z1 < w1 && z1 < x1 && z1 < y1)
+          
+          else if (z1 < v1 && z1 < w1 && z1 < x1 && z1 < y1)
           {
             z2 += 1;
             z1 = z1 / (z2 + 1);
             return 5;
           }
+          else 
+          
+          return -1;
         }
 
         
@@ -86,6 +94,7 @@ namespace dhondt_project
     class Program
     {
         public int rounds = 0;
+        public int ans = 0;
 
         static void Main(string[] args)
 
@@ -191,7 +200,28 @@ namespace dhondt_project
               
 
             }
-
+            ans = calculations(p1.votes(), p1.seats(), p2.votes(), p2.seats(), p3.votes(), p3.seats(), p4.votes(), p4.seats(), p5.votes(), p5.seats());
+            if (ans == 1)
+            {
+              p1.votes() = p1.votes() / p1.seats +1
+            }
+            else if (ans == 2)
+            {
+              p2.votes() = p2.votes() / p2.seats +1
+            }
+            if (ans == 3)
+            {
+              p3.votes() = p3.votes() / p3.seats +1
+            }
+            if (ans == 4)
+            {
+              p4.votes() = p4.votes() / p4.seats +1
+            }
+            if (ans == 5)
+            {
+              p5.votes() = p5.votes() / p5.seats +1
+            }
+            
 
           }
         }
