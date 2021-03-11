@@ -37,7 +37,7 @@ namespace dhondt_project
       private int curSeats{ get; set; }
       private string[] noms{ get; set; }
 
-      public pMaker(string _pName, int _votes, int _toatSeats, int _curSeats, string[] _noms)
+      public void pMaker(string _pName, int _votes, int _toatSeats, int _curSeats, string[] _noms)
       {
         pName=_pname;
         votes=_votes;
@@ -82,6 +82,7 @@ namespace dhondt_project
             //goes through each item in the list, turning it into an array 
             foreach(string line in lines)
             {
+              
               //removes the ";" from the end of the line
               
               string linemin1 = line.Remove(line.Length - 1, 1);
@@ -146,19 +147,20 @@ namespace dhondt_project
           p1.curSeats += 1;
           p1.votes = p1.votes / (p1.curSeats + 1);
         }
-        elif(p2.votes<p1.votes && p2.votes<p3.votes && p2.votes<p4.votes && p2.votes<p5.votes){
+        else if(p2.votes<p1.votes && p2.votes<p3.votes && p2.votes<p4.votes && p2.votes<p5.votes)
+        {
           p2.curSeats += 1;
           p2.votes = p1.votes / (p2.curSeats + 1);
         }
-        elif(p3.votes<p1.votes && p3.votes<p2.votes && p3.votes<p4.votes && p3.votes<p5.votes){
+        else if(p3.votes<p1.votes && p3.votes<p2.votes && p3.votes<p4.votes && p3.votes<p5.votes){
           p3.curSeats += 1;
           p3.votes = p1.votes / (p3.curSeats + 1);
         }
-        elif(p4.votes<p1.votes && p4.votes<p2.votes && p4.votes<p3.votes && p4.votes<p5.votes){
+        else if(p4.votes<p1.votes && p4.votes<p2.votes && p4.votes<p3.votes && p4.votes<p5.votes){
           p4.curSeats += 1;
           p4.votes = p4.votes / (p4.curSeats + 1);
         }
-        elif(p5.votes<p1.votes && p5.votes<p2.votes && p5.votes<p3.votes && p5.votes<p4.votes){
+        else if(p5.votes<p1.votes && p5.votes<p2.votes && p5.votes<p3.votes && p5.votes<p4.votes){
           p5.curSeats += 1;
           p5.votes = p5.votes / (p5.curSeats + 1);
         }
