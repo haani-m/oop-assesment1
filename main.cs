@@ -11,7 +11,7 @@ namespace dhondt_project
         private string[] _noms;
 
 
-        public  string partyname
+        public string partyname
         {
             get { return _partyname; }
             set { _partyname = value; }
@@ -28,9 +28,56 @@ namespace dhondt_project
             get { return _noms; }
             set { _noms = value; }
         }
+        
     }  
+    class mathsStuff
+    {
+      private int votes;
+      private int toatSeats;
+      private int curSeats;
+      private string[] noms;
+
+      public pMaker(_pName,_votes,_toatSeats,_curSeats,_noms)
+      {
+        pName=_pname
+        votes=_votes;
+        toatSeats=_toatSeats;
+        curSeats=_curSeats;
+        noms=noms;
+
+      }
+      public seatCalc(p1,p2,p3,p4,p5)
+      {
+        if(p1.votes<p2.votes && p1.votes<p3.votes && p1.votes<p4.votes && p1.votes<p5.votes)
+        {
+          p1.curSeats += 1;
+          p1.votes = p1.votes / (p1.curSeats + 1)
+        }
+        elif(p2.votes<p1.votes && p2.votes<p3.votes && p2.votes<p4.votes && p2.votes<p5.votes)
+        {
+          p2.curSeats += 1;
+          p2.votes = p1.votes / (p2.curSeats + 1)
+        }
+        elif(p3.votes<p1.votes && p3.votes<p2.votes && p3.votes<p4.votes && p3.votes<p5.votes)
+        {
+          p3.curSeats += 1;
+          p3.votes = p1.votes / (p3.curSeats + 1)
+        }
+        elif(p4.votes<p1.votes && p4.votes<p2.votes && p4.votes<p3.votes && p4.votes<p5.votes)
+        {
+          p4.curSeats += 1;
+          p4.votes = p4.votes / (p4.curSeats + 1)
+        }
+        elif(p5.votes<p1.votes && p5.votes<p2.votes && p5.votes<p3.votes && p5.votes<p4.votes)
+        {
+          p5.curSeats += 1;
+          p5.votes = p5.votes / (p5.curSeats + 1)
+        }
+      }
+    }
     class Program
     {
+      public int curRound = 1
 
         static void Main(string[] args)
 
@@ -88,18 +135,23 @@ namespace dhondt_project
               {
                 Console.WriteLine(nomin);
               }
-
-
+              
+              // make pname the _partyname 
+              //make pvotes the _votes
+              //make pnoms the _nom 
+              
               //!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
               //!!!!!!!HUGH create new objects here!!!!!!!!
               //!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+              if(curRounds=1)
+              {
+                pMaker p1 = new pMaker(pname,pvotes);
+              }
               
 
             }
             
-            
-            
-
         }
+        
     }
 }
